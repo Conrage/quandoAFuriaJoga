@@ -21,7 +21,7 @@ export default function Banner2({ id }) {
         bannerRef.current.append(conf);
         bannerRef.current.append(script);
       }
-    }, 1000)
+    }, 500)
   }, [bannerRef])
 
   return <div className="w-0 md:w-1/5 h-full flex flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center"><h3 className="font-montserrat w-fit font-extrabold uppercase tracking-[-0.08rem] text-sm text-mine-shaft-900">Esmola do Crazynn</h3><div className="rounded-md overflow-clip border-2 w-[160px] h-[600px]" ref={bannerRef}></div> </div>
