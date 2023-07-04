@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import axios from 'axios';
 import GameCard from "./components/GameCard";
 import Banner from "./components/Banner";
+import Banner2 from "./components/Banner2";
 
 const stateFilterEnum = {
   GONNA_PLAY: 0,
@@ -125,7 +126,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Banner id="banner2"></Banner>
+      <Banner2 id="banner2"></Banner2>
     </div>
   )
 }
