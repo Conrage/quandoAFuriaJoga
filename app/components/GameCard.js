@@ -53,7 +53,7 @@ export default function GameCard({ matchDate, tournamentName, enemy, next, score
           <div className="font-extrabold font-montserrat text-mine-shaft-900 text-base sm:text-xl">{moment.utc(matchDate).format('HH:mm')}</div>
           <div className="font-medium font-montserrat text-xs sm:text-sm mb-auto text-mine-shaft-300">{moment.utc(matchDate).format('D [de] MMMM YYYY')}</div>
         </div>
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center justify-center gap-6 w-full">
           <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] < enemyScore ? 'opacity-30' : 'text-green-500'}`}>{scores['99555']}</span>
           <img src="/versus.png" className="mt-2 h-8 sm:h-14"></img>
           <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] > enemyScore ? 'opacity-30' : 'text-green-500'}`}>{enemyScore}</span>
