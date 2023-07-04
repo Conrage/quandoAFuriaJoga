@@ -118,7 +118,7 @@ export default function Home() {
               {filteredMatches.filter(match => match.lifecycle != 'live').length <= 0 && !loading ? <div className="font-montserrat text-blue-900 mt-4 font-extrabold tracking-[-.06rem] uppercase">Nenhuma partida da super Furia</div> : ''}
             </div>
           </div>
-          <div className="hidden flex-col lg:flex w-1/3 gap-2">
+          {/* <div className="hidden flex-col lg:flex w-1/3 gap-2">
             <div className="flex w-full items-center justify-between">
               <h2 className="font-montserrat font-black uppercase text-base md:text-base text-mine-shaft-900 tracking-[-.06rem]">Super opiniões</h2>
               <img src="/super.png" alt="Foto do especialista" className="rounded-full h-12"></img>
@@ -131,7 +131,7 @@ export default function Home() {
               <div className="font-montserrat font-extrabold text-sm text-mine-shaft-900">TOP 2 nacional</div>
               <div className="font-montserrat font-medium text-sm text-mine-shaft-900 mt-2">Com adição de dupla semifinalista de major, MIBR tem tudo para ser o segundo melhor time brasileiro.</div>
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
       <Banner2 id="banner2"></Banner2>
