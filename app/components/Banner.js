@@ -21,7 +21,7 @@ export default function Banner({ id }) {
         ads.current.append(conf);
         ads.current.append(script);
       }
-    }, 600)
+    }, 1000)
   }, [ads])
 
   return <div className="w-0 md:w-1/5 h-full flex flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center"><h3 className="font-montserrat w-fit font-extrabold uppercase tracking-[-0.08rem] text-sm text-mine-shaft-900">Esmola do Crazynn</h3><div className="rounded-md border-2 w-[160px] overflow-clip h-[600px]" ref={ads}></div> </div>
