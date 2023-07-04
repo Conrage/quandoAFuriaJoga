@@ -87,7 +87,7 @@ export default function Home() {
         </div>
         <div className="flex h-full w-full gap-6">
           <div className="flex flex-col h-full w-full gap-4 pb-10">
-            <div className='flex flex-col sm:flex-row gap-2 w-full mt-12'>
+            <div className='flex flex-col sm:flex-row gap-2 w-full mt-2 md:mt-12'>
               <div className='flex items-center w-full md:w-72 group'>
                 <span className='material-symbols-outlined absolute z-10 ml-3 transition text-blue-900 text-opacity-50 group-focus-within:text-blue-700'>search</span>
                 <input className='hover:shadow-2xl hover:shadow-gray-300 hover:border-blue-700 transition outline-none focus:border-blue-700 font-semibold focus:shadow-2xl focus:bg-white focus:shadow-gray-300 relative border-2 border-blue-800 border-opacity-10 placeholder:text-gray-300 w-full bg-gray-50 shadow-lg shadow-gray-50 p-2 placeholder:font-medium text-sm pl-10 py-2.5 rounded-md font-montserrat' placeholder='Buscar coitados'></input>
