@@ -87,7 +87,7 @@ export default function Home() {
       <Banner id="banner1"></Banner>
       <main className='z-10 w-[1320px] lg:min-w-[850px] h-full bg-white p-4 md:p-6 lg:p-10 flex flex-col gap-4'>
         <div className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center'>
-          <img src='/logo.png' className='h-10 md:h-14 drop-shadow-xl'></img>
+          <img src='/logo.png' alt="Quando a Furia joga?" className='h-10 md:h-14 drop-shadow-xl'></img>
           <h1 className='flex gap-2 items-center font-montserrat font-black uppercase text-base md:text-lg text-mine-shaft-900 tracking-[-.08rem]'>{countdown === 'Sem data marcada' ? 'A fúria está' : 'A fúria joga em'}
             {!loading || countdown != '00:00:00' ? <span className='font-semibold md:text-2xl text-lg tracking-tight drop-shadow-lg normal-case'>{countdown}</span> : <svg className="animate-spin z-10 h-8 w-8 text-mine-shaft-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -121,7 +121,7 @@ export default function Home() {
           <div className="hidden flex-col lg:flex w-1/3 gap-2">
             <div className="flex w-full items-center justify-between">
               <h2 className="font-montserrat font-black uppercase text-base md:text-base text-mine-shaft-900 tracking-[-.06rem]">Super opiniões</h2>
-              <img src="/super.png" className="rounded-full h-12"></img>
+              <img src="/super.png" alt="Foto do especialista" className="rounded-full h-12"></img>
             </div>
             <div className="flex flex-col mt-4 p-1 rounded-md">
               <div className="font-montserrat font-extrabold text-sm text-mine-shaft-900">WOOD precisa voltar ás origens</div>
