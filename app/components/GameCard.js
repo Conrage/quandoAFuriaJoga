@@ -54,9 +54,9 @@ export default function GameCard({ matchDate, tournamentName, enemy, next, score
           <div className="font-medium font-montserrat text-xs sm:text-sm mb-auto text-mine-shaft-300">{moment.utc(matchDate).format('D [de] MMMM YYYY')}</div>
         </div>
         <div className="flex items-center justify-center gap-6 w-full">
-          <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] < enemyScore ? 'opacity-30' : 'text-green-500'}`}>{scores['99555']}</span>
+          <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] < enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{scores['99555']}</span>
           <img src="/versus.png" className="mt-2 h-8 sm:h-14"></img>
-          <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] > enemyScore ? 'opacity-30' : 'text-green-500'}`}>{enemyScore}</span>
+          <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] > enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{enemyScore}</span>
         </div>
         <div className="font-semibold font-montserrat h-12 text-xs sm:text-base flex items-end text-blue-700">{tournamentName}</div>
       </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import axios from 'axios';
 import GameCard from "./components/GameCard";
+import Banner from "./components/Banner";
 
 const stateFilterEnum = {
   GONNA_PLAY: 0,
@@ -75,7 +76,8 @@ export default function Home() {
 
   return (
     <div className='relative h-screen w-screen bg-black flex justify-center overflow-hidden'>
-      <main className='z-10 w-[1120px] h-full bg-white p-4 md:p-6 lg:p-10 flex flex-col gap-4'>
+      <Banner></Banner>
+      <main className='z-10 w-[1120px] lg:min-w-[850px] h-full bg-white p-4 md:p-6 lg:p-10 flex flex-col gap-4'>
         <div className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center'>
           <img src='/logo.png' className='h-10 md:h-14 drop-shadow-xl'></img>
           <h1 className='flex gap-2 items-center font-montserrat font-black uppercase text-base md:text-lg text-mine-shaft-900 tracking-[-.08rem]'>{countdown === 'Sem data marcada' ? 'A fúria está' : 'A fúria joga em'}
@@ -123,6 +125,7 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <Banner></Banner>
     </div>
   )
 }
