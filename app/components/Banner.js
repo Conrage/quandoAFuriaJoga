@@ -14,7 +14,7 @@ export default function Banner() {
             const conf = document.createElement('script')
             const script = document.createElement('script')
             script.type = 'text/javascript'
-            script.src = `http://www.profitabledisplaynetwork.com/3acdde6796f141e49d2ee80049410461/invoke.js`
+            script.src = `https://www.profitabledisplaynetwork.com/3acdde6796f141e49d2ee80049410461/invoke.js`
             conf.innerHTML = `atOptions = ${JSON.stringify(atOptions)}`
 
             banner.current.append(conf)
