@@ -17,6 +17,8 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
         />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4029910807149050"
+     crossorigin="anonymous"></script>
       </head>
       <body className={inter.className}>{children}</body>
     </html>
