@@ -60,7 +60,7 @@ iframe {
   width: 100%;
   height: 100%;
 }
-#atLink-3acdde6796f141e49d2ee80049410461 > img {
+.change-ad-size > * > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
