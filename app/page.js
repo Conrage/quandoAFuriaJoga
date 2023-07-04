@@ -75,9 +75,9 @@ export default function Home() {
   }, [stateFilter])
 
   return (
-    <div className='relative h-screen w-screen bg-black flex justify-center overflow-hidden'>
-      <Banner></Banner>
-      <main className='z-10 w-[1120px] lg:min-w-[850px] h-full bg-white p-4 md:p-6 lg:p-10 flex flex-col gap-4'>
+    <div className='relative h-screen w-screen bg-white flex justify-center overflow-hidden'>
+      <Banner id="banner1"></Banner>
+      <main className='z-10 w-[1320px] lg:min-w-[850px] h-full bg-white p-4 md:p-6 lg:p-10 flex flex-col gap-4'>
         <div className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center'>
           <img src='/logo.png' className='h-10 md:h-14 drop-shadow-xl'></img>
           <h1 className='flex gap-2 items-center font-montserrat font-black uppercase text-base md:text-lg text-mine-shaft-900 tracking-[-.08rem]'>{countdown === 'Sem data marcada' ? 'A fúria está' : 'A fúria joga em'}
@@ -125,7 +125,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <Banner></Banner>
+      <Banner id="banner2"></Banner>
     </div>
   )
 }
