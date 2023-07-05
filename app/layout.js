@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Quando a Furia joga?',
-  description: 'Veja quando a super Furia entra em campo.',
+  description: 'Veja quando a super Furia entra em campo. Confira quando a furia joga ou já jogou! Juntamente com as super opiniões do nosso especialista.',
 }
 
 export default function RootLayout({ children }) {
