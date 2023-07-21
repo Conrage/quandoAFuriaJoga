@@ -153,7 +153,7 @@ export default function Home() {
         </section>
         <footer className="md:hidden w-full flex items-center flex-col border-t py-10 gap-1">
           <a
-            className="font-montserrat max-w-fit"
+            className="font-montserrat max-w-fit text-gray-800"
             href="https://github.com/Conrage"
             target="blank"
             rel="noopener noreferrer"
