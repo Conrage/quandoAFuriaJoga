@@ -59,7 +59,7 @@ export default function Home() {
     try {
       const res = await axios.get('/api/get-matches', { params });
       setMatches(res.data);
-      if(matches[0]?.lifecycle === 'live') setCountdown('AO VIVO')
+      if (matches[0]?.lifecycle === 'live') setCountdown('AO VIVO')
       else if (countdown === '00:00:00') initializeClock(res.data[0]?.start_date);
     } catch (error) {
       console.error(error);
@@ -76,7 +76,7 @@ export default function Home() {
   }, [matches.length])
 
   useEffect(() => {
-    if(loading) return;
+    if (loading) return;
     if (stateFilter === stateFilterEnum.ALL) fetchMatches({ all: true });
     else if (stateFilter === stateFilterEnum.GONNA_PLAY) fetchMatches({ upcoming: true });
     else if (stateFilter === stateFilterEnum.ALREADY_PLAYED) fetchMatches({ upcoming: false });
@@ -84,10 +84,28 @@ export default function Home() {
 
   return (
     <div className='relative h-screen w-screen bg-white flex justify-center overflow-hidden'>
-      <Banner id="banner1"></Banner>
+      <div className="w-0 md:w-1/5 h-full flex flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center">
+        <a className="cursor-pointer group relative" href="https://github.com/Conrage/quandoAFuriaJoga" target="blank">
+          <img className="h-12 transition hover:drop-shadow-lg hover:scale-105" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png"></img>
+          <span class="group-hover:opacity-100 z-10 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium">Repositório</span>
+        </a>
+        <a className="cursor-pointer group relative" href="https://twitter.com/crazynnc" target="blank">
+          <img className="h-10 transition hover:drop-shadow-lg hover:scale-105" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png?20220821125553"></img>
+          <span class="group-hover:opacity-100 z-10 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium truncate">Twitter do Crazynn</span>
+        </a>
+        <a className="cursor-pointer group relative" href="mailto:crazycooked@gmail.com?subject=Parceria com o Crazynn" target="blank">
+          <img className="h-10 transition hover:drop-shadow-lg hover:scale-105" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"></img>
+          <span class="group-hover:opacity-100 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium truncate">crazycooked@gmai.com</span>
+        </a>
+        <h3 className="text-gray-800 font-montserrat px-6 text-base mt-6">Interessado em alguma parceria? Entre em contato em alguma das redes!</h3>
+      </div>
       <main className='z-10 w-[1320px] lg:min-w-[850px] h-full bg-white p-4 md:p-6 lg:p-10 flex flex-col gap-4'>
         <div className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center'>
           <img src='/logo.png' alt="Quando a Furia joga?" className='h-10 md:h-14 drop-shadow-xl'></img>
+          <h1 className="invisible opacity-0">Quando a furia joga?</h1>
           <h1 className='flex gap-2 items-center font-montserrat font-black uppercase text-base md:text-lg text-mine-shaft-900 tracking-[-.08rem]'>{countdown === 'Sem data marcada' ? 'A fúria está' : 'A fúria joga em'}
             {!loading || countdown != '00:00:00' ? <span className='font-semibold md:text-2xl text-lg tracking-tight drop-shadow-lg normal-case'>{countdown}</span> : <svg className="animate-spin z-10 h-8 w-8 text-mine-shaft-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -134,7 +152,14 @@ export default function Home() {
           </div> */}
         </div>
       </main>
-      <Banner2 id="banner2"></Banner2>
+      <div className="w-0 md:w-1/5 h-full flex flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center">
+      <h2 className="text-gray-800 font-montserrat">Outros projetos</h2>
+        <a className="cursor-pointer group relative" href="https://watchfpl.vercel.app" target="blank">
+          <img className="h-14 transition hover:drop-shadow-lg hover:scale-105" src="/watchfpl.png"></img>
+          <span class="group-hover:opacity-100 truncate transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+    -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium">Watch FPL</span>
+        </a>
+      </div>
     </div>
   )
 }
