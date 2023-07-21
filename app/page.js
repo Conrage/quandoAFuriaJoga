@@ -84,7 +84,7 @@ export default function Home() {
 
   return (
     <div className='relative h-screen w-screen bg-white flex justify-center overflow-hidden'>
-      <div className="w-0 md:w-1/5 h-full flex flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center">
+      <section className="hidden w-0 md:flex md:w-1/5 h-full flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center">
         <a className="cursor-pointer group relative" href="https://github.com/Conrage/quandoAFuriaJoga" target="blank">
           <img className="h-12 transition hover:drop-shadow-lg hover:scale-105" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png"></img>
           <span class="group-hover:opacity-100 z-10 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
@@ -101,9 +101,9 @@ export default function Home() {
     -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium truncate">crazycooked@gmai.com</span>
         </a>
         <h3 className="text-gray-800 font-montserrat px-6 text-base mt-6">Interessado em alguma parceria? Entre em contato em alguma das redes!</h3>
-      </div>
+      </section>
       <main className='z-10 w-[1320px] lg:min-w-[850px] h-full bg-white p-4 md:p-6 lg:p-10 flex flex-col gap-4'>
-        <div className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center'>
+        <section className='flex flex-col sm:flex-row gap-4 sm:gap-0 justify-between items-center'>
           <img src='/logo.png' alt="Quando a Furia joga?" className='h-10 md:h-14 drop-shadow-xl'></img>
           <h1 className="invisible opacity-0">Quando a furia joga?</h1>
           <h1 className='flex gap-2 items-center font-montserrat font-black uppercase text-base md:text-lg text-mine-shaft-900 tracking-[-.08rem]'>{countdown === 'Sem data marcada' ? 'A fúria está' : 'A fúria joga em'}
@@ -112,9 +112,9 @@ export default function Home() {
               <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>}
           </h1>
-        </div>
+        </section>
         {matches[0]?.lifecycle === 'live' && <GameCard live={true} scores={matches[0].scores} next={false} key={matches[0].id} enemy={matches[0].participants.find(participant => participant.team_id != 35132)} matchDate={matches[0].start_date} tournamentName={matches[0].tournament.name}></GameCard>}
-        <div className="flex h-full w-full gap-6">
+        <section className="flex h-full w-full gap-6">
           <div className="flex flex-col h-full w-full gap-4 pb-10">
             <div className='flex flex-col sm:flex-row gap-2 w-full mt-2 md:mt-12'>
               <div className='flex items-center w-full md:w-72 group'>
@@ -150,16 +150,50 @@ export default function Home() {
               <div className="font-montserrat font-medium text-sm text-mine-shaft-900 mt-2">Com adição de dupla semifinalista de major, MIBR tem tudo para ser o segundo melhor time brasileiro.</div>
             </div>
           </div> */}
-        </div>
+        </section>
+        <footer className="md:hidden w-full flex items-center flex-col border-t py-10 gap-1">
+          <a
+            className="font-montserrat max-w-fit"
+            href="https://github.com/Conrage"
+            target="blank"
+            rel="noopener noreferrer"
+          >
+            Powered by{" "}
+            <span className="font-semibold text-blue-500">Crazynn</span>
+          </a>
+          <div className="flex gap-2">
+            <a
+              target="blank"
+              className="font-base p-2 max-w-fit h-fit rounded-lg bg-white shadow-sm border"
+              href="https://github.com/Conrage/quandoAFuriaJoga"
+            >
+              <img className="h-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png"></img>
+            </a>
+            <a
+              target="blank"
+              className="font-base p-2 max-w-fit h-fit rounded-lg bg-white shadow-sm border"
+              href="https://watchfpl.vercel.app"
+            >
+              <img className="w-20" src="/watchfpl.png"></img>
+            </a>
+            <a
+              target="blank"
+              className="font-base p-2 max-w-fit h-fit rounded-lg bg-white shadow-sm border"
+              href="https://twitter.com/crazynnc"
+            >
+              <img className="h-6" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png?20220821125553"></img>
+            </a>
+          </div>
+        </footer>
       </main>
-      <div className="w-0 md:w-1/5 h-full flex flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center">
-      <h2 className="text-gray-800 font-montserrat">Outros projetos</h2>
+      <section className="hidden w-0 xl:flex xl:w-1/5 h-full flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center">
+        <h2 className="text-gray-800 font-montserrat">Outros projetos</h2>
         <a className="cursor-pointer group relative" href="https://watchfpl.vercel.app" target="blank">
           <img className="h-14 transition hover:drop-shadow-lg hover:scale-105" src="/watchfpl.png"></img>
           <span class="group-hover:opacity-100 truncate transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium">Watch FPL</span>
         </a>
-      </div>
+      </section>
     </div>
   )
 }
