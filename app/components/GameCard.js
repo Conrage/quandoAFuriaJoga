@@ -31,9 +31,9 @@ export default function GameCard({ matchDate, tournamentName, enemy, next, score
   }
 
   useEffect(() => {
-    setFuriaKey(furia?.id);
+    setFuriaKey(furia.id);
     if(scores) {
-      const enemyKey = Object.keys(scores).find(key => key != furiaKey);
+      const enemyKey = Object.keys(scores).find(key => key != furia.id);
       setEnemyScore(scores[enemyKey])
     }
     if (next) fetchData();
