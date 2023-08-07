@@ -5,9 +5,10 @@ import axios from "axios";
 
 moment.locale('pt-br')
 
-export default function GameCard({ matchDate, tournamentName, enemy, next, scores, live
+export default function GameCard({ matchDate, tournamentName, enemy, next, scores, live, furia
  }) {
   const [furiaWinstreak, setFuriaWinstreak] = useState(0);
+  const [furiaKey, setFuriaKey] = useState('99555');
   const [enemyWinstreak, setEnemyWinstreak] = useState(0);
   const [enemyScore, setEnemyScore] = useState(0);
 
@@ -30,8 +31,10 @@ export default function GameCard({ matchDate, tournamentName, enemy, next, score
   }
 
   useEffect(() => {
+    setFuriaKey(furia?.id);
     if(scores) {
-      const enemyKey = Object.keys(scores).find(key => key != '99555');
+      console.log(furiaKey)
+      const enemyKey = Object.keys(scores).find(key => key != furiaKey);
       setEnemyScore(scores[enemyKey])
     }
     if (next) fetchData();
@@ -56,9 +59,9 @@ export default function GameCard({ matchDate, tournamentName, enemy, next, score
           <div className="font-medium font-montserrat text-xs sm:text-sm mb-auto text-mine-shaft-300">{moment(matchDate).format('D [de] MMMM YYYY')}</div>
         </div>}
         <div className="flex items-center justify-center gap-6 w-full">
-          <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] < enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{scores['99555']}</span>
+          <span className={`font-extrabold font-montserrat text-3xl ${scores[furiaKey] < enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{scores[furiaKey]}</span>
           <img src="/versus.png" alt="Versus" className="mt-2 h-8 sm:h-14"></img>
-          <span className={`font-extrabold font-montserrat text-3xl ${scores['99555'] > enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{enemyScore}</span>
+          <span className={`font-extrabold font-montserrat text-3xl ${scores[furiaKey] > enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{enemyScore}</span>
         </div>
         <div className={`font-semibold font-montserrat h-12 text-xs sm:text-base flex items-end absolute bottom-2 ${!live ? 'text-blue-700' : 'text-red-600'}`}>{tournamentName}</div>
       </div>
@@ -68,7 +71,7 @@ export default function GameCard({ matchDate, tournamentName, enemy, next, score
         </div>
         {next && <div className={`flex items-center gap-1 mx-auto ${enemyWinstreak > furiaWinstreak ? '' : 'opacity-70'}`}>
           <div className={`font-montserrat font-bold text-base sm:text-xl ${enemyWinstreak > furiaWinstreak ? 'text-red-500' : 'text-mine-shaft-200'}`}>{enemyWinstreak}</div>
-          <img src="/fire.png" alt="Winstreak" className={`h-4 sm:h-6 ${furiaWinstreak > furiaWinstreak ? '' : 'grayscale opacity-40'}`}></img>
+          <img src="/fire.png" alt="Winstreak" className={`h-4 sm:h-6 ${enemyWinstreak > furiaWinstreak ? '' : 'grayscale opacity-40'}`}></img>
         </div>}
       </div>
     </div>

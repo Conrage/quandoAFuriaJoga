@@ -113,7 +113,7 @@ export default function Home() {
             </svg>}
           </h1>
         </section>
-        {matches[0]?.lifecycle === 'live' && <GameCard live={true} scores={matches[0].scores} next={false} key={matches[0].id} enemy={matches[0].participants.find(participant => participant.team_id != 35132)} matchDate={matches[0].start_date} tournamentName={matches[0].tournament.name}></GameCard>}
+        {matches[0]?.lifecycle === 'live' && <GameCard live={true} scores={matches[0].scores} next={false} key={matches[0].id} furia={matches[0].participants.find(participant => participant.team_id === 35132)} enemy={matches[0].participants.find(participant => participant.team_id != 35132)} matchDate={matches[0].start_date} tournamentName={matches[0].tournament.name}></GameCard>}
         <section className="flex h-full w-full gap-6">
           <div className="flex flex-col h-full w-full gap-4 pb-10">
             <div className='flex flex-col sm:flex-row gap-2 w-full mt-2 md:mt-12'>
@@ -132,7 +132,7 @@ export default function Home() {
               {loading ? <svg className="animate-spin mt-6 z-10 h-12 w-12 text-blue-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-              </svg> : filteredMatches.filter(match => match.lifecycle != 'live').map((match, index) => <GameCard scores={match.scores} next={index === 0 && match.lifecycle != 'over'} key={match.id} enemy={match.participants.find(participant => participant.team_id != 35132)} matchDate={match.start_date} tournamentName={match.tournament.name}></GameCard>)}
+              </svg> : filteredMatches.filter(match => match.lifecycle != 'live').map((match, index) => <GameCard scores={match.scores} next={index === 0 && match.lifecycle != 'over'} key={match.id} furia={match.participants.find(participant => participant.team_id === 35132)} enemy={match.participants.find(participant => participant.team_id != 35132)} matchDate={match.start_date} tournamentName={match.tournament.name}></GameCard>)}
               {filteredMatches.filter(match => match.lifecycle != 'live').length <= 0 && !loading ? <div className="font-montserrat text-blue-900 mt-4 font-extrabold tracking-[-.06rem] uppercase">Nenhuma partida da super Furia</div> : ''}
             </div>
           </div>

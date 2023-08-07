@@ -11,12 +11,13 @@ export async function GET(req, res) {
   const team_id = searchParams.get('team_id') || '35132';
   const matches = await axios.get(`https://neptune.1337pro.com/teams/${team_id}/series?upcoming=false`, { headers });
   let winstreak = 0;
-  for(let i = 0; i < matches.data.length; i++) {
+  for (let i = 0; i < matches.data.length; i++) {
+    const participantId = matches.data[i].participants[0].id;
     const keys = Object.keys(matches.data[i].scores);
-    const otherTeam = keys.find(key => key != '99555');
-    const win = matches.data[i].scores['99555'] > matches.data[i].scores[otherTeam];
-    if(!win) break;
+    const otherTeam = keys.find(key => key != participantId);
+    const win = matches.data[i].scores[participantId] > matches.data[i].scores[otherTeam];
+    if (!win) break;
     else winstreak++;
   };
-  return NextResponse.json({winstreak})
+  return NextResponse.json({ winstreak })
 }
