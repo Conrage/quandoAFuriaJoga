@@ -13,5 +13,5 @@ export async function GET(req, res) {
     const teamLive = allAndLive.data.items.filter((match) => {
         return match.participants.filter(part => part.team_id === team_id)[0]
     });
-    return NextResponse.json(teamLive);
+    return NextResponse.json(teamLive.filter(match => match.lifecycle === 'live'));
 }
