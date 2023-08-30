@@ -16,6 +16,7 @@ export default function Home() {
   const [stateFilter, setStateFilter] = useState(stateFilterEnum.GONNA_PLAY);
   const [filteredMatches, setFilteredMatches] = useState([]);
   const [matches, setMatches] = useState([]);
+  const [liveMatch, setLiveMatch] = useState({});
   const [loading, setLoading] = useState(false);
   const [countdown, setCountdown] = useState('00:00:00');
 
@@ -59,7 +60,11 @@ export default function Home() {
     try {
       const res = await axios.get('/api/get-matches', { params });
       setMatches(res.data);
-      if (matches[0]?.lifecycle === 'live') setCountdown('AO VIVO')
+      const resLive = await axios.get('/api/get-live');
+      if (resLive.data.length) {
+        setCountdown('AO VIVO');
+        setLiveMatch(resLive.data[0]);
+      }
       else if (countdown === '00:00:00') initializeClock(res.data[0]?.start_date);
     } catch (error) {
       console.error(error);
@@ -87,17 +92,17 @@ export default function Home() {
       <section className="hidden w-0 md:flex md:w-1/5 h-full flex-col gap-4 border border-gray-200 py-10 items-center text-white text-center">
         <a className="cursor-pointer group relative" href="https://github.com/Conrage/quandoAFuriaJoga" target="blank">
           <img className="h-12 transition hover:drop-shadow-lg hover:scale-105" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png"></img>
-          <span class="group-hover:opacity-100 z-10 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+          <span className="group-hover:opacity-100 z-10 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium">Repositório</span>
         </a>
         <a className="cursor-pointer group relative" href="https://twitter.com/crazynnc" target="blank">
           <img className="h-10 transition hover:drop-shadow-lg hover:scale-105" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png?20220821125553"></img>
-          <span class="group-hover:opacity-100 z-10 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+          <span className="group-hover:opacity-100 z-10 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium truncate">Twitter do Crazynn</span>
         </a>
         <a className="cursor-pointer group relative" href="mailto:crazycooked@gmail.com?subject=Parceria com o Crazynn" target="blank">
           <img className="h-10 transition hover:drop-shadow-lg hover:scale-105" src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png"></img>
-          <span class="group-hover:opacity-100 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+          <span className="group-hover:opacity-100 w-fit transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium truncate">crazycooked@gmai.com</span>
         </a>
         <h3 className="text-gray-800 font-montserrat px-6 text-base mt-6">Interessado em alguma parceria? Entre em contato em alguma das redes!</h3>
@@ -113,7 +118,7 @@ export default function Home() {
             </svg>}
           </h1>
         </section>
-        {matches[0]?.lifecycle === 'live' && <GameCard live={true} scores={matches[0].scores} next={false} key={matches[0].id} furia={matches[0].participants.find(participant => participant.team_id === 35132)} enemy={matches[0].participants.find(participant => participant.team_id != 35132)} matchDate={matches[0].start_date} tournamentName={matches[0].tournament.name}></GameCard>}
+        {liveMatch.id && <GameCard live={true} scores={liveMatch.scores} next={false} key={liveMatch.id} furia={liveMatch.participants.find(participant => participant.team_id === 35132)} enemy={liveMatch.participants.find(participant => participant.team_id != 35132)} matchDate={liveMatch.start_date} tournamentName={liveMatch.tournament.name}></GameCard>}
         <section className="flex h-full w-full gap-6">
           <div className="flex flex-col h-full w-full gap-4 pb-10">
             <div className='flex flex-col sm:flex-row gap-2 w-full mt-2 md:mt-12'>
@@ -190,7 +195,7 @@ export default function Home() {
         <h2 className="text-gray-800 font-montserrat">Outros projetos</h2>
         <a className="cursor-pointer group relative" href="https://watchfpl.vercel.app" target="blank">
           <img className="h-14 transition hover:drop-shadow-lg hover:scale-105" src="/watchfpl.png"></img>
-          <span class="group-hover:opacity-100 truncate transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
+          <span className="group-hover:opacity-100 truncate transition-opacity bg-gray-800 p-2 px-3 font-montserrat text-sm text-gray-100 rounded-md absolute left-1/2 
     -translate-x-1/2 translate-y-1/4 opacity-0 m-4 mt-1 pointer-events-none shadow-md mx-auto font-medium">Watch FPL</span>
         </a>
       </section>
