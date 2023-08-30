@@ -60,9 +60,9 @@ export default function GameCard({ matchDate, tournamentName, enemy, next, score
           <div className="font-extrabold font-montserrat text-mine-shaft-900 text-base sm:text-xl">{moment(matchDate).format('HH:mm')}</div>
           <div className="font-medium font-montserrat text-xs sm:text-sm mb-auto text-mine-shaft-300">{moment(matchDate).format('D [de] MMMM YYYY')}</div>
         </div>}
-        <div className="flex items-center justify-center gap-6 w-full">
+        <div className={!live ? "mt-2 flex items-center justify-center gap-6 w-full" : "mt-14 sm:mt-8 flex items-center justify-center gap-6 w-full"}>
           <span className={`font-extrabold font-montserrat text-3xl ${scores[furiaKey] < enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{scores[furiaKey]}</span>
-          <img src="/versus.png" alt="Versus" className={!live ? "mt-2 h-8 sm:h-14" : "mt-14 sm:mt-8 h-8 sm:h-14"}></img>
+          <img src="/versus.png" alt="Versus" className={!live ? "mt-2 h-8 sm:h-14" : "h-8 sm:h-14"}></img>
           <span className={`font-extrabold font-montserrat text-3xl ${scores[furiaKey] > enemyScore ? 'opacity-30 text-mine-shaft-900' : 'text-green-500'}`}>{enemyScore}</span>
         </div>
         <div className={`font-semibold font-montserrat h-12 text-xs sm:text-base flex items-end absolute bottom-2 ${!live ? 'text-blue-700' : 'text-red-600'}`}>{tournamentName}</div>
